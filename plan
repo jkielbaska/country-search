@@ -10,15 +10,17 @@ Klikając na element listy, mapa powinna wycentrować się na stolicy danego kra
 Po kliknięciu na kolejny element na liście, poprzednia pinezka powinna zniknąć, a na mapie powinna pojawić się nowa pinezka na stolicy wybranego kraju.
 Aplikacja powinna być responsywna, a lista krajów powinna przesuwać się pojawiając się na ekranie mobilnym po kliknięciu na dodatkowy przycisk umieszczony nad warstwą mapy.
 
-1. podzielic home page na 30% lewo (lista krajów i input u góry a jak się ładują dane z api to loader) i 70% prawo (mapa widoczna cały czas)
+Next bez sensu chyba, zaczne w react, potem zobaczę.
 
-2. pobrać liste krajów z restcountries.com
+1. + podzielic home page na 30% lewo (lista krajów i input u góry a jak się ładują dane z api to loader) i 70% prawo (mapa widoczna cały czas)
+
+2. + pobrać liste krajów z restcountries.com
 (wszystkie endpoint: https://restcountries.com/v3.1/all, do wyszukiwania https://restcountries.com/v3.1/name/{name})
 
-3. Każdy kraj musi mieć nazwę kraju, obrazek flagi, walutę kraju, stolicę i populację.
+3. + Każdy kraj musi mieć nazwę kraju, obrazek flagi, walutę kraju, stolicę i populację.
 (nazwa  kraju: name.common, obrazek flagi: flags.png, waluta: currencies, stolica: capital, populacja: population)
 
-4. Nad listą input z filtrowaniem krajów - ma się wyświetlić każdy kraj, który ma w nazwie daną frazę
+4. + Nad listą input z filtrowaniem krajów - ma się wyświetlić każdy kraj, który ma w nazwie daną frazę
 (https://restcountries.com/v3.1/name/{name})
 
 
@@ -38,4 +40,3 @@ Aplikacja powinna być responsywna, a lista krajów powinna przesuwać się poja
 https://www.npmjs.com/package/leaflet
 Methods
 
-React Context??
