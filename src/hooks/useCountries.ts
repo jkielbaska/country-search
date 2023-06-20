@@ -12,7 +12,6 @@ export const useCountries = () => {
   const [countries, setCountries] = useState<CountriesData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string>("");
-
   const search = useAppSelector(selectorSearch);
 
   useEffect(() => {
