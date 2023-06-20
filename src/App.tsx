@@ -1,10 +1,13 @@
 import "./index.css";
+import { CountriesList } from "./components/left/CountriesList";
+import { Map } from "./components/right/Map";
 
 function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </>
+    <main className="h-screen w-screen max-w-full flex">
+      <CountriesList />
+      <Map />
+    </main>
   );
 }
 
