@@ -3,27 +3,43 @@ import { useCountries } from "../../hooks/useCountries";
 import { CountriesData } from "../../types/tCountriesData";
 import { useAppDispatch } from "../../redux/hooks";
 import { setLatlng } from "../../redux/slices/latlngSlice";
+import { useAppSelector } from "../../redux/hooks";
+import { selectorLatlng } from "../../redux/slices/latlngSlice";
 
 export const CountriesList = () => {
   const { countries, loading, error } = useCountries();
   const dispatch = useAppDispatch();
+  const latlng = useAppSelector(selectorLatlng);
 
   return (
     <div className="w-[30%] bg-blue-500 text-gray-100 h-full overflow-y-scroll overflow-x-hidden">
       <SearchForm />
       {loading && (
-        <div className="w-full flex justify-center">
+        <div className="w-full flex justify-center pt-2">
           <span className="loading loading-spinner loading-lg" />
         </div>
       )}
-      {error && <div>Error: {error}</div>}
+      {error && <div className="text-xl text-center pt-2">{error}</div>}
       {!loading &&
         !error &&
         countries?.map((country: CountriesData) => (
           <div
-            className="cursor-pointer p-2 m-1 flex flex-col items-center text-center bg-gray-400 rounded-md "
-            key={country.flag}
-            onClick={() => dispatch(setLatlng(country.capitalInfo.latlng))}
+            className={`${
+              country.capitalInfo.latlng === latlng
+                ? "bg-gray-800"
+                : country.latlng === latlng
+                ? "bg-gray-800"
+                : "bg-gray-400"
+            } cursor-pointer p-2 m-1 flex flex-col items-center text-center rounded-md`}
+            // className="cursor-pointer p-2 m-1 flex flex-col items-center text-center bg-gray-400 rounded-md"
+            key={country.cca2}
+            onClick={() => {
+              dispatch(
+                country.capitalInfo.latlng
+                  ? setLatlng(country.capitalInfo.latlng)
+                  : setLatlng(country.latlng)
+              );
+            }}
           >
             <img alt="flag" src={country.flags.png} width={50} height={40} />
             <p className="font-bold text-lg">{country.name.common}</p>
