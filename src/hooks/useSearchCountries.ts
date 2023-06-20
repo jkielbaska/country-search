@@ -1,29 +1,27 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useAppDispatch } from "../redux/hooks";
+import { setSearch } from "../redux/slices/searchSlice";
 
 const searchSchema = z.object({
-  search: z.string().min(1, { message: "required" }),
+  search: z.string(),
 });
 
 type SearchSchemaType = z.infer<typeof searchSchema>;
 
 export const useSearchCountries = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const dispatch = useAppDispatch();
 
   const { handleSubmit, ...form } = useForm<SearchSchemaType>({
     resolver: zodResolver(searchSchema),
   });
 
   const onSubmit = async (data: SearchSchemaType) => {
-    setIsSubmitting(true);
-    console.log(data);
-    setIsSubmitting(false);
+    dispatch(setSearch(data.search));
   };
 
   return {
-    isSubmitting,
     form: { handleAddComment: handleSubmit(onSubmit), ...form },
   };
 };
