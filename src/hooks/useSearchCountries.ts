@@ -4,20 +4,19 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useAppDispatch } from "../redux/hooks";
 import { setSearch } from "../redux/slices/searchSlice";
 
-const searchSchema = z.object({
+const SearchSchema = z.object({
   search: z.string(),
 });
 
-type SearchSchemaType = z.infer<typeof searchSchema>;
+type SearchSchemaType = z.infer<typeof SearchSchema>;
 
 export const useSearchCountries = () => {
+  const { handleSubmit, ...form } = useForm<SearchSchemaType>({
+    resolver: zodResolver(SearchSchema),
+  });
   const dispatch = useAppDispatch();
 
-  const { handleSubmit, ...form } = useForm<SearchSchemaType>({
-    resolver: zodResolver(searchSchema),
-  });
-
-  const onSubmit = async (data: SearchSchemaType) => {
+  const onSubmit = (data: SearchSchemaType) => {
     dispatch(setSearch(data.search));
   };
 
