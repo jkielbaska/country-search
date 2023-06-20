@@ -11,6 +11,7 @@ export interface CountriesData {
       };
     };
   };
+  cca2: string;
   currencies: {
     [key: string]: {
       name: string;
