@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .side-menu {
+    @apply flex flex-col text-gray-100 overflow-y-scroll overflow-x-hidden;
+  }
+}
