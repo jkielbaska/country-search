@@ -2,29 +2,25 @@ import { useSearchCountries } from "../../hooks/useSearchCountries";
 
 export const SearchForm = () => {
   const {
-    isSubmitting,
-    form: {
-      handleAddComment,
-      register,
-      formState: { errors },
-    },
+    form: { handleAddComment, register },
   } = useSearchCountries();
 
-  console.log(errors);
   return (
     <form onSubmit={handleAddComment}>
       <input
-        type="text"
-        placeholder="search country"
-        className="input input-bordered w-full"
-        {...register("search", { min: 1 })}
+        type="search"
+        placeholder="search country or capital"
+        className="input text-center w-full"
+        {...register("search")}
       />
 
-      <input
+      <button
         type="submit"
-        className="btn btn-outline w-full"
+        className="btn btn-active w-full "
         placeholder="explore"
-      />
+      >
+        find
+      </button>
     </form>
   );
 };
