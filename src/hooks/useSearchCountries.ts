@@ -21,6 +21,6 @@ export const useSearchCountries = () => {
   };
 
   return {
-    form: { handleAddComment: handleSubmit(onSubmit), ...form },
+    form: { handleAddSearch: handleSubmit(onSubmit), ...form },
   };
 };

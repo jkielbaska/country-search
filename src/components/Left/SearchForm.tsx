@@ -2,11 +2,11 @@ import { useSearchCountries } from "../../hooks/useSearchCountries";
 
 export const SearchForm = () => {
   const {
-    form: { handleAddComment, register },
+    form: { handleAddSearch, register },
   } = useSearchCountries();
 
   return (
-    <form onSubmit={handleAddComment}>
+    <form onSubmit={handleAddSearch}>
       <input
         type="search"
         placeholder="SEARCH COUNTRY OR CAPITAL"
