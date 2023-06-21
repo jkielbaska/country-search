@@ -1,11 +1,11 @@
-import "./index.css";
-import { CountriesList } from "./components/left/CountriesList";
+import "./global.css";
+import { ListCountries } from "./components/left/ListCountries";
 import { Map } from "./components/right/Map";
 
 function App() {
   return (
-    <main className="h-screen w-screen max-w-full flex">
-      <CountriesList />
+    <main className="h-screen w-screen max-w-full md:flex">
+      <ListCountries />
       <Map />
     </main>
   );
