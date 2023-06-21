@@ -14,8 +14,8 @@ Next bez sensu chyba, zaczne w react, potem zobaczę.
 
 1. + podzielic home page na 30% lewo (lista krajów i input u góry a jak się ładują dane z api to loader) i 70% prawo (mapa widoczna cały czas)
 
-2. + pobrać liste krajów z restcountries.com
-(wszystkie endpoint: https://restcountries.com/v3.1/all, do wyszukiwania https://restcountries.com/v3.1/name/{name})
+2. +pobrać liste krajów z restcountries.com
+(wszystkie endpoint: https://restcountries.com/v3.1/all, do wyszukiwania https://restcountries.com/v3.1/name/{name} ale ma być jeszcze po stolicy)
 
 3. + Każdy kraj musi mieć nazwę kraju, obrazek flagi, walutę kraju, stolicę i populację.
 (nazwa  kraju: name.common, obrazek flagi: flags.png, waluta: currencies, stolica: capital, populacja: population)
@@ -24,19 +24,19 @@ Next bez sensu chyba, zaczne w react, potem zobaczę.
 (https://restcountries.com/v3.1/name/{name})
 
 
-5. Mapa - openstreetmap i na początku pokazuje mape świata
-6. Po kliknięciu na element listy, mapa ma się wycentrować na stolicy danego kraju i WYŚWIETLIĆ PINEZKĘ
-(koordynaty stolicy na pinezke: capitalInfo.latlng[0], capitalInfo.latlng[1], w mapbox jest funkcja map.flyTo([lat, lng], zoom), ale chyba leaflet lepiej)
+5. + Mapa - openstreetmap i na początku pokazuje mape świata
+6. + Po kliknięciu na element listy, mapa ma się wycentrować na stolicy danego kraju i WYŚWIETLIĆ PINEZKĘ
+(koordynaty stolicy na pinezke: capitalInfo.latlng, w mapbox jest funkcja map.flyTo([lat, lng], zoom), ale chyba leaflet lepiej)
 
-7. Po kliknięciu na kolejny element listy poprzednia pinezka ma zniknąć a na mapie pojawić się nowa pinezka stolicy i przenieść mapę do tego punktu
+7. + Po kliknięciu na kolejny element listy poprzednia pinezka ma zniknąć a na mapie pojawić się nowa pinezka stolicy i przenieść mapę do tego punktu
 
-8. Na mobilce ma zniknąć lista krajów i ma pokazywać się po klinięciu na dodatkowy przycisk, który będzie pojawiał się nad warstwą mapy
+8. + Na mobilce ma zniknąć lista krajów i ma pokazywać się po klinięciu na dodatkowy przycisk, który będzie pojawiał się nad warstwą mapy
 
-9. W Readme opisać jak uruchomić apkę.
+9. + W Readme opisać jak uruchomić apkę.
 
 10. Repo udostępnić Bohdanowi: bohdan.masliannykov@develtio.com, https://github.com/bohdan-masliannykov
 
 
-https://www.npmjs.com/package/leaflet
-Methods
+
+
 
