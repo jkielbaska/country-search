@@ -6,8 +6,10 @@ interface latlngState {
   latlng: LatLngExpression;
 }
 
+export const initialLatLng: LatLngExpression = [10, 0];
+
 const initialState: latlngState = {
-  latlng: [51.505, -0.09],
+  latlng: initialLatLng,
 };
 
 const latlngSlice = createSlice({
