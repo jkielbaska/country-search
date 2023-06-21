@@ -3,7 +3,7 @@ import { CountriesData } from "../types/tCountriesData";
 
 const apiBase = "https://restcountries.com/v3.1";
 
-export const api = axios.create({
+const api = axios.create({
   baseURL: apiBase,
 });
 
