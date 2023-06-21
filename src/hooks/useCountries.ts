@@ -7,23 +7,41 @@ import {
 } from "../services/api";
 import { useAppSelector } from "../redux/hooks";
 import { selectorSearch } from "../redux/slices/searchSlice";
+import { selectorSearchType } from "../redux/slices/searchTypeSlice";
 
 export const useCountries = () => {
   const [countries, setCountries] = useState<CountriesData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string>("");
   const search = useAppSelector(selectorSearch);
+  const searchType = useAppSelector(selectorSearchType);
 
   useEffect(() => {
     const fetchCountries = async () => {
       try {
         setLoading(true);
         setError("");
-
-        if (search === "") {
+        if (!search) {
           const response = await getAllCountries();
           response && setCountries([...response]);
-        } else {
+        }
+        if (search && searchType === "country") {
+          const response = await getCountryByName(search).catch(() => []);
+          {
+            response?.length === 0
+              ? setError("No country found")
+              : response && setCountries([...response]);
+          }
+        }
+        if (search && searchType === "capital") {
+          const response = await getCountryByCapital(search).catch(() => []);
+          {
+            response?.length === 0
+              ? setError("No capital found")
+              : response && setCountries([...response]);
+          }
+        }
+        if (search && searchType === "both") {
           const byName =
             search && (await getCountryByName(search).catch(() => []));
           const byCapital =
@@ -42,7 +60,6 @@ export const useCountries = () => {
             },
             [] as CountriesData[]
           );
-
           filteredResponse.length === 0
             ? setError("No country or capital found, try again")
             : setCountries(filteredResponse);
@@ -56,7 +73,7 @@ export const useCountries = () => {
     };
 
     fetchCountries();
-  }, [search]);
+  }, [search, searchType]);
 
   return { countries, loading, error };
 };
