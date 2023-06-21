@@ -9,16 +9,12 @@ export const SearchForm = () => {
     <form onSubmit={handleAddComment}>
       <input
         type="search"
-        placeholder="search country or capital"
+        placeholder="SEARCH COUNTRY OR CAPITAL"
         className="input text-center w-full"
         {...register("search")}
       />
 
-      <button
-        type="submit"
-        className="btn btn-active w-full "
-        placeholder="explore"
-      >
+      <button type="submit" className="btn btn-active w-full ">
         find
       </button>
     </form>
